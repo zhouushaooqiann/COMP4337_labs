@@ -8,7 +8,7 @@ key = sys.argv[2]
 inputfile = sys.argv[3]
 f1 = open(inputfile, 'r')
 outputfile = sys.argv[4]
-f2 = open(outputfile, 'w',encoding = "utf-8")
+f2 = open(outputfile, 'w',encoding = "latin-1")
 
 #cbc_key = Random.get_random_bytes(8)
 
