@@ -8,8 +8,11 @@ iv = sys.argv[1]
 key = sys.argv[2]
 inputfile = sys.argv[3]
 outputfile = sys.argv[4]
-f1 = open(inputfile, 'r', encoding = "latin-1")
-f2 = open(outputfile, 'w', encoding = "latin-1")
+try:
+    f1 = open(inputfile, 'r', encoding = "latin-1")
+    f2 = open(outputfile, 'w', encoding = "latin-1")
+except Exception as e:
+    print(e)
 
 
 #cbc_key = Random.get_random_bytes(8)
@@ -23,8 +26,11 @@ print('Key used: ', [x for x in key])
 print("IV used: ", [x for x in iv])
 print('=' * 100)
 
-des1 = DES.new(bytearray.fromhex(key), DES.MODE_CBC, bytearray.fromhex(iv))
-des2 = DES.new(bytearray.fromhex(key), DES.MODE_CBC, bytearray.fromhex(iv))
+try:
+    des1 = DES.new(bytearray.fromhex(key), DES.MODE_CBC, bytearray.fromhex(iv))
+    des2 = DES.new(bytearray.fromhex(key), DES.MODE_CBC, bytearray.fromhex(iv))
+except Exception as e:
+    print(e)
 
 plain_text = f1.read()
 print("Plaintext is: ", plain_text)
