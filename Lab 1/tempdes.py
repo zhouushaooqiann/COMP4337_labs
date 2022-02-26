@@ -2,7 +2,7 @@ import sys
 import time
 from Crypto.Cipher import DES
 from Crypto import Random
-
+import os
 # acquire parameters
 iv = sys.argv[1]
 key = sys.argv[2]
@@ -35,7 +35,7 @@ end_encrypt = time.time()
 
 print("Ciphertext is: ", cipher_text.decode("latin-1"))
 print("Time taken to encrypt: ", end_encrypt - start_encrypt);
-
+encrypt_cost = end_encrypt - start_encrypt
 f2.write(cipher_text.decode("latin-1"))
 f1.close()
 f2.close()
@@ -46,5 +46,11 @@ end_decrypt = time.time()
 
 print("Original Message", msg.decode("latin-1"))
 print("Time taken to decrypt: ", end_decrypt - start_decrypt)
-
+decrypt_cost = end_decrypt - start_decrypt
 print('=' * 100)
+folder = os.getcwd() + "\\test_result\\"
+if not os.path.exists(folder):
+    os.makedirs(folder)
+with open("test_result\\des_" + inputfile, 'w', encoding='utf-8') as file_object:
+    file_object.write("encrypt time cost: " + str(encrypt_cost) + 's' + 
+                      "\ndecrypt time cost: " + str(decrypt_cost) + 's')
