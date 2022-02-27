@@ -59,7 +59,7 @@ def main(inputfile):
     if not os.path.exists(folder):
         os.makedirs(folder)
     with open("test_result\\rsa_" + inputfile, 'w', encoding='utf-8') as file_object:
-        file_object.write("encrypt time cost: " + str(encrypt_cost) + 's' + "\ndecrypt time cost: " + str(decrypt_cost) + 'μs')
+        file_object.write("encrypt time cost: " + str(encrypt_cost) + 'μs' + "\ndecrypt time cost: " + str(decrypt_cost) + 'μs')
 
 if __name__ == "__main__":
     try:

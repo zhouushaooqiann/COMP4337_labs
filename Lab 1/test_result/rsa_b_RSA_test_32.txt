@@ -1,2 +1,2 @@
-encrypt time cost: 10024.0s
+encrypt time cost: 10008.0μs
 decrypt time cost: 10004.0μs
