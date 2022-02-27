@@ -31,26 +31,26 @@ except Exception as e:
 
 plain_text = f1.read()
 
-start_encrypt = time.time()
+start_encrypt = time.time()*10e6
 cipher_text = des1.encrypt(plain_text.encode("latin-1"))
-end_encrypt = time.time()
+end_encrypt = time.time()*10e6
 
-print("Time taken to encrypt: ", end_encrypt - start_encrypt);
+print("Time taken to encrypt: ", end_encrypt - start_encrypt, 'μs');
 encrypt_cost = end_encrypt - start_encrypt
 
 f1.close()
 
 
-start_decrypt = time.time()
+start_decrypt = time.time()*10e6
 msg = des2.decrypt(cipher_text)
-end_decrypt = time.time()
+end_decrypt = time.time()*10e6
 
-print("Time taken to decrypt: ", end_decrypt - start_decrypt)
+print("Time taken to decrypt: ", end_decrypt - start_decrypt, 'μs')
 decrypt_cost = end_decrypt - start_decrypt
 print('=' * 100)
 folder = os.getcwd() + "\\test_result\\"
 if not os.path.exists(folder):
     os.makedirs(folder)
 with open("test_result\\des_" + inputfile, 'w', encoding='utf-8') as file_object:
-    file_object.write("encrypt time cost: " + str(encrypt_cost) + 's' + 
-                      "\ndecrypt time cost: " + str(decrypt_cost) + 's')
+    file_object.write("encrypt time cost: " + str(encrypt_cost) + 'μs' + 
+                      "\ndecrypt time cost: " + str(decrypt_cost) + 'μs')

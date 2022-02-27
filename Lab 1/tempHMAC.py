@@ -21,7 +21,7 @@ import sys
 import time
 import os
 def main(inputfile):
-    time_start = time.time()
+    time_start = time.time()*10e6
     secret_key = 'secret-shared-key-goes-here'
     digest_maker = hmac.new(secret_key.encode("latin-1"), digestmod='MD5')#in your code replace key
     f = open(inputfile, 'rb')
@@ -35,7 +35,7 @@ def main(inputfile):
         f.close()
     
     digest = digest_maker.hexdigest()
-    time_end = time.time()
+    time_end = time.time()*10e6
     print('='*100)
     #print("HMAC digest generated for " + inputfile + " file is:", digest)
     print('='*100)
@@ -44,7 +44,7 @@ def main(inputfile):
     if not os.path.exists(folder):
         os.makedirs(folder)
     with open("test_result\\HMAC_" + inputfile, 'w', encoding='utf-8') as file_object:
-        file_object.write("time cost: " + str(time_cost) + 's')
+        file_object.write("time cost: " + str(time_cost) + 'μs')
 
 if __name__ == "__main__":
     try:

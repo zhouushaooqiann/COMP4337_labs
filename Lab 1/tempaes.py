@@ -41,26 +41,26 @@ def main(inputfile):
         plain_text = f.read()
     #int("Plaintext is: ", plain_text)
     
-    time_start = time.time()
+    time_start = time.time()*10e6
     cipher_text = aes1.encrypt(plain_text.encode("latin-1"))
-    time_end = time.time()
+    time_end = time.time()*10e6
     #print("Ciphertext is: ", cipher_text.decode("latin-1"))
     encrypt_cost = time_end - time_start
-    print("time cost: ", encrypt_cost, 's')
+    print("time cost: ", encrypt_cost, 'μs')
     
-    time_start = time.time()
+    time_start = time.time()*10e6
     msg = aes2.decrypt(cipher_text)
-    time_end = time.time()
+    time_end = time.time()*10e6
     #print("Decrypted message: ", msg.decode("latin-1"))
     decrypt_cost = time_end - time_start
-    print("time cost: ", decrypt_cost, 's')
+    print("time cost: ", decrypt_cost, 'μs')
     print('=' * 100)
     folder = os.getcwd() + "\\test_result\\"
     if not os.path.exists(folder):
         os.makedirs(folder)
     with open("test_result\\aes_" + inputfile, 'w', encoding='utf-8') as file_object:
-        file_object.write("encrypt time cost: " + str(encrypt_cost) + 's' + 
-                          "\ndecrypt time cost: " + str(decrypt_cost) + 's')
+        file_object.write("encrypt time cost: " + str(encrypt_cost) + 'μs' + 
+                          "\ndecrypt time cost: " + str(decrypt_cost) + 'μs')
 
 if __name__ == "__main__":
     try:

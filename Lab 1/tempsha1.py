@@ -15,14 +15,14 @@ import time
 import sys
 import os
 def main(inputfile):
-    time_start = time.time()
+    time_start = time.time()*10e6
     #initializing string
     print('='*100)
     with open(inputfile, 'r') as f:
         st = f.read()
       
     result = hashlib.sha1(st.encode()) 
-    time_end = time.time()
+    time_end = time.time()*10e6
     # printing the equivalent hexadecimal value. 
     #print("The hexadecimal equivalent of SHA1 digest is : ")
     #print(result.hexdigest())
@@ -32,7 +32,7 @@ def main(inputfile):
     if not os.path.exists(folder):
         os.makedirs(folder)
     with open("test_result\\sha1_" + inputfile, 'w', encoding='utf-8') as file_object:
-        file_object.write("time cost: " + str(time_cost) + 's')
+        file_object.write("time cost: " + str(time_cost) + 'μs')
 
 if __name__ == "__main__":
     try:

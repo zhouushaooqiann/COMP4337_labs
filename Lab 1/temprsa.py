@@ -40,18 +40,18 @@ def main(inputfile):
     #print("Plaintext is: ", plain_text)
     # print
     encryptor = PKCS1_OAEP.new(publickey)
-    time_start = time.time()
+    time_start = time.time()*10e6
     cipher_text = encryptor.encrypt(plain_text.encode("latin-1"))  # message to encrypt is in the above line 'encrypt this message'
-    time_end = time.time()
+    time_end = time.time()*10e6
     #print('Plaintext encrypted using Public Key is:', cipher_text.decode("latin-1"))
     encrypt_cost = time_end - time_start
 
     # print
     # decrypted code below
     decryptor = PKCS1_OAEP.new(key)
-    time_start = time.time()
+    time_start = time.time()*10e6
     decrypted = decryptor.decrypt(ast.literal_eval(str(cipher_text)))
-    time_end = time.time()
+    time_end = time.time()*10e6
     #print('Ciphertext decrypted with Private key is', decrypted.decode("latin-1"))
     decrypt_cost = time_end - time_start
     print('=' * 100)
@@ -59,7 +59,7 @@ def main(inputfile):
     if not os.path.exists(folder):
         os.makedirs(folder)
     with open("test_result\\rsa_" + inputfile, 'w', encoding='utf-8') as file_object:
-        file_object.write("encrypt time cost: " + str(encrypt_cost) + 's' + "\ndecrypt time cost: " + str(decrypt_cost) + 's')
+        file_object.write("encrypt time cost: " + str(encrypt_cost) + 's' + "\ndecrypt time cost: " + str(decrypt_cost) + 'μs')
 
 if __name__ == "__main__":
     try:
