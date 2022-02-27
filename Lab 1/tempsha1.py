@@ -24,8 +24,8 @@ def main(inputfile):
     result = hashlib.sha1(st.encode()) 
     time_end = time.time()
     # printing the equivalent hexadecimal value. 
-    print("The hexadecimal equivalent of SHA1 digest is : ") 
-    print(result.hexdigest())
+    #print("The hexadecimal equivalent of SHA1 digest is : ")
+    #print(result.hexdigest())
     print('='*100)
     time_cost = time_end - time_start
     folder = os.getcwd() + "\\test_result\\"

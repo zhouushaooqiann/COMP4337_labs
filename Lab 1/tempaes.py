@@ -39,19 +39,19 @@ def main(inputfile):
     
     with open(inputfile, 'r') as f:
         plain_text = f.read()
-    print("Plaintext is: ", plain_text)
+    #int("Plaintext is: ", plain_text)
     
     time_start = time.time()
     cipher_text = aes1.encrypt(plain_text.encode("latin-1"))
     time_end = time.time()
-    print("Ciphertext is: ", cipher_text.decode("latin-1"))
+    #print("Ciphertext is: ", cipher_text.decode("latin-1"))
     encrypt_cost = time_end - time_start
     print("time cost: ", encrypt_cost, 's')
     
     time_start = time.time()
     msg = aes2.decrypt(cipher_text)
     time_end = time.time()
-    print("Decrypted message: ", msg.decode("latin-1"))
+    #print("Decrypted message: ", msg.decode("latin-1"))
     decrypt_cost = time_end - time_start
     print("time cost: ", decrypt_cost, 's')
     print('=' * 100)

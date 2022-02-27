@@ -1,4 +1,14 @@
+import sys
 from pypresent import Present
+
+# Encrypting with a 128-bit key:
+# -------------------------------
+inputfile = sys.argv[1]
+
+try:
+    f1 = open(inputfile, 'r', encoding = "latin-1")
+except Exception as e:
+    print(e)
 
 # Encrypting with a 128-bit key:
 # -------------------------------
@@ -20,3 +30,4 @@ print("Ciphertext is: ", cipher_text.encode('hex'))
 msg = cipher.decrypt(cipher_text)
 print("Decrypted message: ", msg.encode('hex'))
 print('='*100)
+

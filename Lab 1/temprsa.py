@@ -37,13 +37,13 @@ def main(inputfile):
     print('=' * 100)
     with open(inputfile, 'r') as f:
         plain_text = f.read()
-    print("Plaintext is: ", plain_text)
+    #print("Plaintext is: ", plain_text)
     # print
     encryptor = PKCS1_OAEP.new(publickey)
     time_start = time.time()
     cipher_text = encryptor.encrypt(plain_text.encode("latin-1"))  # message to encrypt is in the above line 'encrypt this message'
     time_end = time.time()
-    print('Plaintext encrypted using Public Key is:', cipher_text.decode("latin-1"))
+    #print('Plaintext encrypted using Public Key is:', cipher_text.decode("latin-1"))
     encrypt_cost = time_end - time_start
 
     # print
@@ -52,7 +52,7 @@ def main(inputfile):
     time_start = time.time()
     decrypted = decryptor.decrypt(ast.literal_eval(str(cipher_text)))
     time_end = time.time()
-    print('Ciphertext decrypted with Private key is', decrypted.decode("latin-1"))
+    #print('Ciphertext decrypted with Private key is', decrypted.decode("latin-1"))
     decrypt_cost = time_end - time_start
     print('=' * 100)
     folder = os.getcwd() + "\\test_result\\"

@@ -37,7 +37,7 @@ def main(inputfile):
     digest = digest_maker.hexdigest()
     time_end = time.time()
     print('='*100)
-    print("HMAC digest generated for " + inputfile + " file is:", digest)
+    #print("HMAC digest generated for " + inputfile + " file is:", digest)
     print('='*100)
     time_cost = time_end - time_start
     folder = os.getcwd() + "\\test_result\\"
